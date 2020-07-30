@@ -1,9 +1,13 @@
 // Project Constants
 const mainContainerWidth = 50; //50vh
+const blankColor = '#f9faf5'
+const startingBoardSize = 16;
  
 //Global Variables
 let squareWidth = 0;
 let userBoardSize;
+let mouseDown = false;
+let currentColor = 'black';
 
 //querySelector
 const canvas = document.querySelector('.canvas');
@@ -17,10 +21,19 @@ function createSquare(numberOfSquares) {
     square.className = "square";
     square.style.width = `${squareWidth}vh`;
     square.style.height = `${squareWidth}vh`;
-
-    console.log(square.style.width);
+    square.style.backgroundColor = blankColor;
 
     return square;
+}
+
+
+//Complete Erase 
+function completeErase() {
+
+    const squares = document.querySelectorAll('.square');
+    squares.forEach(square => {
+        square.style.backgroundColor = blankColor;
+    })
 }
 
 
@@ -49,9 +62,35 @@ function createGrid(numberOfSquares) {
     const canvasLength = numberOfSquares * squareWidth;
     canvas.setAttribute('style', `width: ${canvasLength}vh; height: ${canvasLength}vh`)
 
+    colorSquare();
+
 }
 
-createGrid(16);
+
+//add EventListener to each square and change to black when hover over it
+function colorSquare() {
+    const squares = document.querySelectorAll('.square');
+    squares.forEach(square => {
+        square.addEventListener('mousedown', event => {
+            mouseDown = true;
+            event.target.style.backgroundColor = "white";
+        })
+        square.addEventListener('mouseover', event => {
+            if (mouseDown) {
+                event.target.style.backgroundColor = "black";
+            }
+        })
+        square.addEventListener('mouseup', event => mouseDown = false);
+    })
+}
+
+
+createGrid(startingBoardSize);
+
+const completeEraseBtn = document.querySelector('#complete-erase-btn');
+completeEraseBtn.addEventListener('click', completeErase);
+
+
 
 
 /**
@@ -63,4 +102,16 @@ createGrid(16);
  * - set mainContainerWidth constant and squareWidth = mainContainerWidth / numberOfSquares
  * - What if the side cannot be divided equally, eg. 50/3?
  * - adjust the maincontainer size (50 + 50%3) % 3 = 0
+ * 
+ * 
+ * User function:
+ * - Complete Erase 
+ * - Selective Erase
+ * - color Change? 
+ * - toggle-able eraser tool
+ *
+ * 
+ * 
+ * 
+ * 
  */

@@ -8,7 +8,7 @@ body {
 .top-container {
     margin: 0 auto;
     width: 80%;
-    height: 30vh;
+    min-height: 30vh;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -19,24 +19,97 @@ body {
 
 .canvas {
     margin: 0 auto;
-    background-color: blue;
     display: flex;
     flex-wrap: wrap;
     border: 1px black solid;
 
 }
 
+button {
+    cursor: pointer;
+    vertical-align: middle;
+    font-weight: 600;
+    font-family: inherit;
+    padding: .5em;
+    border-radius: 0.5em;
+    border: 2px black solid;
+}
+
+button:hover {background-color: #619c63;}
+
+button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+  
+
+
+
+
+
+
+
+
 .square {
     box-sizing: border-box;
-    background-color: yellow;
     border: solid 1px black;
 }
 
 .main-container {
     margin: 0 auto;
     width: 50vh;
-    height: 50vh;
+    min-height: 50vh;
 }
+
+.bottom-container {
+    margin: 0 auto;
+    width: 70%;
+    height: 15vh;
+}
+
+.bottom-container button {
+    margin-top: 25px;
+}
+
+.color-selection {
+    margin-top: 25px;
+    display: flex;
+    float: right;
+}
+
+.color-square {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px black solid;
+    margin-right: 10px;
+}
+
+.color-black {
+    background-color: black;
+}
+
+.color-white {
+    background-color:#f9faf5;
+}
+
+.color-blue {
+    background-color: blue;
+}
+
+.color-red {
+    background-color: red;
+}
+
+.color-yellow {
+    background-color: yellow;
+}
+
+.color-green {
+    background-color: green;
+}
+
 
 
 
