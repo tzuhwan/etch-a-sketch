@@ -1,0 +1,42 @@
+
+
+body {
+    font-family: monospace;
+    
+}
+
+.top-container {
+    margin: 0 auto;
+    width: 80%;
+    height: 30vh;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.top-container h1 {
+    padding-top: 2vh;
+}
+
+.canvas {
+    margin: 0 auto;
+    background-color: blue;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px black solid;
+
+}
+
+.square {
+    box-sizing: border-box;
+    background-color: yellow;
+    border: solid 1px black;
+}
+
+.main-container {
+    margin: 0 auto;
+    width: 50vh;
+    height: 50vh;
+}
+
+
+
