@@ -43,7 +43,7 @@ function completeErase() {
 //Selective erase
 function selectiveErase() {
     isErase = !isErase;
-    isErase === true ? currentColor = blankColor : null;
+    colorSquare(currentColor);
 }
 
 
@@ -73,22 +73,29 @@ function createGrid(numberOfSquares) {
     const canvasLength = numberOfSquares * squareWidth;
     canvas.setAttribute('style', `width: ${canvasLength}vh; height: ${canvasLength}vh`)
 
-    colorSquare();
+    colorSquare(currentColor);
 
 }
 
 
 //add EventListener to each square and change to currentColor when hover over it
-function colorSquare() {
+function colorSquare(currentColor) {
+    let color = currentColor; 
+    if (isErase) {
+        color = blankColor;
+    }
+    console.log(isErase);
+    console.log(color);
+    
     const squares = document.querySelectorAll('.square');
     squares.forEach(square => {
         square.addEventListener('mousedown', event => {
             mouseDown = true;
-            event.target.style.backgroundColor = currentColor;
+            event.target.style.backgroundColor = color;
         })
         square.addEventListener('mouseover', event => {
             if (mouseDown) {
-                event.target.style.backgroundColor = currentColor;
+                event.target.style.backgroundColor = color;
             }
         })
         square.addEventListener('mouseup', event => mouseDown = false);
@@ -125,6 +132,7 @@ function chooseColor() {
         
         colorBtn.addEventListener('click', event => {
             currentColor = event.target.style.backgroundColor;
+            colorSquare(currentColor);
         })
     })
 }
@@ -133,9 +141,13 @@ createGrid(startingBoardSize);
 chooseColor();
 defineColorPalette();
 
+
+//DOM manipulation to erase whole board
 const completeEraseBtn = document.querySelector('#complete-erase-btn');
 completeEraseBtn.addEventListener('click', completeErase);
 
+
+//DOM manipulation to selectively erase board
 const selectiveEraseBtn = document.querySelector('#eraser-btn');
 selectiveEraseBtn.addEventListener('click', event => {
     selectiveEraseBtn.classList.toggle('active');
@@ -162,6 +174,11 @@ selectiveEraseBtn.addEventListener('click', event => {
  * - Selective Erase
  * - color Change? 
  * - toggle-able eraser tool
+ * 
+ * 
+ * Bugs:
+ * 1. After selecting eraser, user has to select color again 
+ *  - Pass specific color into the colorSquare() function without changing currentColor;
  *
  * 
  * 
