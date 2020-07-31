@@ -10,14 +10,13 @@
     <body>
         <div class="top-container">
             <h1>Etch-a-Sketch!</h1>
-            <p>To change the board size, enter the number of squares <br><br> you want per side. </p>
+            <p>To change the board size, enter the number of squares you want per side. Tip: anything more than 50 is a stretch...</p>
 
             <form action="">
-                <label for="bSize">Board size:</label>
-                <br><br>
+                <label id='board-size-label' for="bSize">Board Size:</label>
                 <input type="text" id="board-size">
                 <br><br>
-                <input type="button" onclick ="getUserBoardSize()" value="Change Board Size">
+                <input class="button" type="button" onclick ="getUserBoardSize()" value="Change Board Size">
             </form>
 
         </div>
@@ -28,20 +27,27 @@
 
         <div class="bottom-container">
 
-            <button id="complete-erase-btn">Erase Whole Board</button>
+            <div class="erase-btn-row">
+                <button class="button" id="complete-erase-btn">Erase Whole Board</button>
+                <button class="button" id="eraser-btn">Eraser</button>
+            </div>
+            
 
             <div class="color-selection">
-                <div class="color-square color-black"></div>
-                <div class="color-square color-white"></div>
-                <div class="color-square color-blue"></div>
-                <div class="color-square color-red"></div>
-                <div class="color-square color-green"></div>
-                <div class="color-square color-yellow"></div>
+                <div class="color-square color-square-clicked"></div>
+                <div class="color-square"></div>
+                <div class="color-square"></div>
+                <div class="color-square"></div>
+                <div class="color-square"></div>
+                <div class="color-square"></div>
+                <div class="color-square"></div>
             </div>
 
         </div>
 
-        <div class="footer"></div>
+        <div class="footer">
+            <p>A project by <a href='https://github.com/tzuhwan'>TzuHwan Seet</a>, thanks to <a href='https://www.theodinproject.com/home?ref=logout'>The Odin Project</a></p>
+        </div>
 
 
         <script src="main.js"></script>

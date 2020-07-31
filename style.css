@@ -5,16 +5,29 @@ body {
     
 }
 
+#board-size-label {
+    font-weight: 600;
+}
+
+input[type=text] {
+    width: 15%;
+    /* margin: 8px 0; */
+    box-sizing: border-box;
+    font-family: inherit;
+    border-radius: 2px;
+    border: 2px solid #01200f;
+  }
+
 .top-container {
     margin: 0 auto;
     width: 80%;
-    min-height: 30vh;
+    min-height: 25vh;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .top-container h1 {
-    padding-top: 2vh;
+    padding-top: 1vh;
 }
 
 .canvas {
@@ -25,29 +38,42 @@ body {
 
 }
 
-button {
+.button {
+    padding: 15px 25px;
+    font-size: 1em;
+    margin-right: 1em;
     cursor: pointer;
-    vertical-align: middle;
-    font-weight: 600;
+    text-align: center;
+    outline: none;
+    color: #fff;
+    background-color: #32746d;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #9ec5ab;
     font-family: inherit;
-    padding: .5em;
-    border-radius: 0.5em;
-    border: 2px black solid;
-}
+    font-weight: 600;
+  }
+  
+.button:hover {background-color: #104f55}
+  
+.button:active {
+    background-color: #104f55;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
 
-button:hover {background-color: #619c63;}
-
-button:active {
-    background-color: #3e8e41;
+.active {
+    background-color: #104f55;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
-  
 
 
-
-
-
+.erase-btn-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
 
 
 
@@ -58,14 +84,18 @@ button:active {
 
 .main-container {
     margin: 0 auto;
-    width: 50vh;
-    min-height: 50vh;
+    width: 60vh;
+    min-height: 60vh;
+    background-color: red;
 }
 
 .bottom-container {
     margin: 0 auto;
-    width: 70%;
+    width: 85%;
     height: 15vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .bottom-container button {
@@ -73,42 +103,42 @@ button:active {
 }
 
 .color-selection {
-    margin-top: 25px;
+    margin-left: 20px;
+    margin-top: 35px;
     display: flex;
     float: right;
 }
 
 .color-square {
+    cursor: pointer;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     border: 2px black solid;
     margin-right: 10px;
+    
 }
 
-.color-black {
-    background-color: black;
+.color-square-clicked {
+    transition: all .5s ease;
+    transform: scale(1.3);
 }
 
-.color-white {
-    background-color:#f9faf5;
+
+.footer {
+    text-align: center;
+    margin-bottom: 50px;
+    
 }
 
-.color-blue {
-    background-color: blue;
+.footer p {
+    margin-bottom: 10px;
 }
 
-.color-red {
-    background-color: red;
+.footer a {
+    color: #104f55;
 }
 
-.color-yellow {
-    background-color: yellow;
-}
-
-.color-green {
-    background-color: green;
-}
 
 
 
